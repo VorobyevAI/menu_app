@@ -1,0 +1,13 @@
+
+<ul>
+    {% for item in items %}
+        <li>
+            <a href="?{{ q }}&{{ menu }}={{ item.id }}">{{ item.name }}</a>
+        </li>
+        
+        {% if item.child_items %}
+            {% include 'menu/menu.html' with items=item.child_items %}
+        {% endif %}
+
+    {% endfor %}
+</ul>
